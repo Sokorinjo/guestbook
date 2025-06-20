@@ -1,9 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router'
 
-type Props = {}
-
-const Welcome = (props: Props) => {
+const Welcome = () => {
   return (
     <>
       <header>

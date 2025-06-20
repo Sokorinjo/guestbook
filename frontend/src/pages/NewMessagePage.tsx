@@ -1,8 +1,4 @@
-import React from 'react'
-
-type Props = {}
-
-const NewMessagePage = (props: Props) => {
+const NewMessagePage = () => {
     return (
         <>
             <header>
