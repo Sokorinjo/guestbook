@@ -18,4 +18,17 @@ npm install
 ```
 
 ## 2. Setup MariaDB
-Depending on your OS, instalation will be different so refer to official MariaDB docs: https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb
+1. MariaDB installation differs from OS to OS, so refer to official MariaDB docs: <br> https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb
+
+## 3. Environment variables
+Env variables are set like so:
+    * NODE_ENV=development
+    * PORT=5000
+    * DB_HOST=localhost
+    * DB_USER=root
+    * DB_PASS=darkcidator
+    * DB_PORT=3306
+    * DB_NAME=guestbook_db
+
+
+
