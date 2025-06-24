@@ -7,7 +7,7 @@ const addMessage = (req, res) => {
     try{
         const sql = `INSERT INTO messages(message, name) values(?, ?)`
         const result = db.query(sql,[message, name])
-        res.send(result)
+        // res.send(result)
     }
     catch(err){
         throw new Error(err)
@@ -18,7 +18,9 @@ const addMessage = (req, res) => {
 //@route GET /api/messages
 const getAllMessages = async (req, res) => {
     try{
-        const sql = `SELECT * FROM messages;`
+        const sql = `SELECT * FROM messages
+        ORDER BY created_at DESC
+        `
         const result = await db.query(sql)
         console.log(result)
         res.send(result)
