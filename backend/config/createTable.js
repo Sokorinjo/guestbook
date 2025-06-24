@@ -14,7 +14,7 @@ dotenv.config();
             connectionLimit: 5
         });
 
-        conn = await pool.getConnection()
+        conn = await pool.getConnection()        
         const deleteTable = conn.query(`DROP TABLE IF EXISTS messages;`)
         const createTable = conn.query(`CREATE TABLE messages(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -22,6 +22,7 @@ dotenv.config();
             name VARCHAR(30) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );`)
+        
         console.log('Created table "messages".')
         console.log('Closing connection with DB...')
         await pool.end()
