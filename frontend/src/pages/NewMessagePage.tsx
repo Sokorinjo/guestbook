@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import { useAddMessage } from "../features/useAddMessage" 
 
 type Message = {
     message: string
@@ -12,21 +13,34 @@ const NewMessagePage = () => {
         name: ""
     })
 
+    //Invoke navigate
     let navigate = useNavigate()
 
+    //Add message mutation
+    let addMessage = useAddMessage()
+
+    //Handle inputs
     function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
         setMessageInput({
             ...messageInput,
             [e.target.name]: e.target.value
         })
-        console.log(messageInput)
     }
 
+    //On form submit, call react query mytation to add message and set state to "". Navigate to previous page
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         console.log('submited form')
+        addMessage.mutate({message: messageInput.message, name: messageInput.name})
+        setMessageInput({
+            message: '',
+            name: ''
+        })
         navigate("/")
     }
+
+    //Control if button is disabled
+    const disableButton = messageInput.name && messageInput.message ? false: true;
 
     return (
         <>
@@ -40,7 +54,7 @@ const NewMessagePage = () => {
                         width: ''
                     }}>
                         <label htmlFor="message">Message</label>
-                        <input name="message" id="message" type="text" placeholder="Message:" onChange={(e) => onInputChange(e)} />
+                        <input name="message" id="message" type="text" value={messageInput.message} placeholder="Message:" onChange={(e) => onInputChange(e)} />
 
                     </div>
                     <div style={{
@@ -49,10 +63,10 @@ const NewMessagePage = () => {
                     }}
                     >
                         <label htmlFor="name">Name</label>
-                        <input name="name" id="name" type="text" placeholder="Name" onChange={(e) => onInputChange(e)} />
+                        <input name="name" id="name" type="text" value={messageInput.name} placeholder="Name" onChange={(e) => onInputChange(e)} />
 
                     </div>
-                    <button>Post</button>
+                    <button disabled={disableButton}>Post</button>
                 </form>
             </main>
         </>
