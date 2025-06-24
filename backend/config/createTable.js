@@ -22,7 +22,7 @@ dotenv.config();
             name VARCHAR(30) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );`)
-        
+
         console.log('Created table "messages".')
         console.log('Closing connection with DB...')
         await pool.end()

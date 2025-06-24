@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import { useEffect, useState } from 'react'
 import { useMessagesQuery } from '../features/useGetMessages'
 
 type Message = {
@@ -9,11 +10,11 @@ type Message = {
 }
 
 const Welcome = () => {
-  const {data, isLoading, error} = useMessagesQuery()
+  const { data, isLoading, error } = useMessagesQuery()
 
-  if(isLoading) return <p>Loading...</p>
-  if(error) return <p>Error: {error.message}</p>
-  
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
+
   return (
     <>
       <header>
@@ -27,7 +28,7 @@ const Welcome = () => {
               <li key={message.id}>{message.message}, {message.name}, {message.created_at}</li>
             ))}
           </ul>
-          <div></div>
+          
         </section>
         <Link to='/add-message'>
           <button>Leave a message</button>
