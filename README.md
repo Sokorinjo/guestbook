@@ -7,3 +7,12 @@ Fullstack ReactTS, NodeJS and SQL app.
 git clone git@github.com:Sokorinjo/guestbook.git
 ```
 
+**2. From the root folder(guestbook) run:**
+```
+npm install
+```
+
+**3. Navigate to frontend folder and run the same:**
+```
+npm install
+```
