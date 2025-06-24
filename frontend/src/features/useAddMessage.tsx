@@ -18,6 +18,6 @@ export const useAddMessage = () => {
         mutationFn: addMessage,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['messages'] })
-        },
+        }
     })
 }
