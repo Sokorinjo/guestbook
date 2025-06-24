@@ -20,15 +20,15 @@ npm install
 ## 2. Setup MariaDB
 1. MariaDB installation differs from OS to OS, so refer to official MariaDB docs: <br> https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb
 
-2. Create table guestbook_db, or any name, just change DB_NAME in .env to match you db name(check section 3. for env variables).
+2. Create table **guestbook_db**, or any name, just change *DB_NAME* in *.env* to match you db name(check section 3. for env variables).
 
 2. From guestbook folder run in terminal:
 ```
 npm run create-table
 ```
-which will create a messages table
+which will create a messages table.
 ## 3. Environment variables
-Create a .env file in guestbook folder and add env variables like so:
+Create a *.env* file in guestbook folder and add env variables like so:
 * NODE_ENV=development
 * PORT=5000
 * DB_HOST=localhost
