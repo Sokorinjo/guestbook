@@ -38,7 +38,8 @@ Create a *.env* file in guestbook folder and add env variables like so:
 * DB_NAME=guestbook_db
 
 Each of these variables can be changed if needed. <br>
-Note: PORT is port for backend. If changed, change the proxy in *vite.config.ts*(target: 'http://localhost:5000').
+*
+<br>*Note*: PORT is port for backend. If changed, change the proxy in *vite.config.ts*(target: 'http://localhost:5000').
 
 ## 4. Start app
 Run this script from guestbook frolder to start app:
